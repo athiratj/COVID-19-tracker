@@ -13,6 +13,15 @@ import Map from "./Map";
 function App() {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState(["worldwide"]);
+  const [countryInfo, setCountryInfo] = useState({});
+
+  useEffect(() => {
+    fetch("https://disease.sh/v3/covid-19/all")
+      .then((response) => response.json())
+      .then((data) => {
+        setCountryInfo(data);
+      });
+  }, []);
 
   useEffect(() => {
     const getCountriesData = async () => {
@@ -27,13 +36,25 @@ function App() {
         });
     };
     getCountriesData();
-  }, [countries]);
+  }, []);
+
   const onCountryChange = async (event) => {
     const countryCode = event.target.value;
-    console.log(countryCode);
-    setCountry(countryCode);
-  };
 
+    const url =
+      countryCode === "worldwide"
+        ? "https://disease.sh/v3/covid-19/all"
+        : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
+
+    await fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setCountry(countryCode);
+
+        setCountryInfo(data);
+      });
+  };
+  console.log("Country info: ", countryInfo);
   return (
     <div className="app">
       <div className="app_left">
@@ -53,9 +74,21 @@ function App() {
           </FormControl>
         </div>
         <div className="app_stats">
-          <InfoBox title="Coronavirus Cases" cases={12345} total={2000} />
-          <InfoBox title="Recovered " cases={12345} total={3000} />
-          <InfoBox title="Deaths" cases={12345} total={4000} />
+          <InfoBox
+            title="Coronavirus Cases"
+            cases={countryInfo.todayCases}
+            total={countryInfo.cases}
+          />
+          <InfoBox
+            title="Recovered "
+            cases={countryInfo.todayRecovered}
+            total={countryInfo.recovered}
+          />
+          <InfoBox
+            title="Deaths"
+            cases={countryInfo.todayDeaths}
+            total={countryInfo.deaths}
+          />
         </div>
 
         <Map />
