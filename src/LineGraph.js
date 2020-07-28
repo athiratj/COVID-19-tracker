@@ -21,10 +21,10 @@ const options = {
       },
     },
   },
-  scale: {
+  scales: {
     xAxes: [
       {
-        type: "item",
+        type: "time",
         time: {
           format: "MM/DD/YY",
           tooltipFormat: "ll",
@@ -62,7 +62,7 @@ const buildChartData = (data, casesType = "cases") => {
   return chartData;
 };
 
-function LineGraph({ casesType = "cases" }) {
+function LineGraph() {
   const [data, setData] = useState({});
 
   useEffect(() => {
