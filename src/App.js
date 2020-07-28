@@ -72,7 +72,7 @@ function App() {
     <div className="app">
       <div className="app_left">
         <div className="app_header">
-          <h1>Covid-19 Tracker</h1>
+          <h1>COVID-19 TRACKER</h1>
           <FormControl className="app_dropdown">
             <Select
               variant="outlined"
@@ -123,8 +123,8 @@ function App() {
         <CardContent>
           <h3>Live Cases by Country</h3>
           <Table countries={tableData} />
-          <h3>Worldwide new {casesType}</h3>
-          <LineGraph casesType={casesType} />
+          <h3 className="app_graphTitle">Worldwide new {casesType}</h3>
+          <LineGraph graph="app_graph" casesType={casesType} />
         </CardContent>
       </Card>
     </div>
