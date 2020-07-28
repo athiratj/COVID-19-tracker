@@ -59,8 +59,9 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setCountry(countryCode);
-
         setCountryInfo(data);
+        setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+        setMapZoom(4);
       });
   };
 
