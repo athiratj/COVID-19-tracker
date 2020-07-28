@@ -95,6 +95,7 @@ function App() {
             total={prettyPrintStat(countryInfo.cases)}
           />
           <InfoBox
+            isRed
             active={casesType === "recovered"}
             onClick={(e) => setCasesType("recovered")}
             title="Recovered "
@@ -102,6 +103,7 @@ function App() {
             total={prettyPrintStat(countryInfo.recovered)}
           />
           <InfoBox
+            isRed
             active={casesType === "deaths"}
             onClick={(e) => setCasesType("deaths")}
             title="Deaths"
