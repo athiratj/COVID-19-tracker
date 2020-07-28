@@ -21,6 +21,29 @@ const options = {
       },
     },
   },
+  scale: {
+    xAxes: [
+      {
+        type: "item",
+        time: {
+          format: "MM/DD/YY",
+          tooltipFormat: "ll",
+        },
+      },
+    ],
+    yAxes: [
+      {
+        gridLines: {
+          display: false,
+        },
+        ticks: {
+          callback: function (value, index, values) {
+            return numeral(value).format("0a");
+          },
+        },
+      },
+    ],
+  },
 };
 
 const buildChartData = (data, casesType = "cases") => {
