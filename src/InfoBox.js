@@ -14,7 +14,9 @@ function InfoBox({ title, cases, isRed, total, active, ...props }) {
         <Typography className="infoBox_title" color="textSecondary">
           {title}
         </Typography>
-        <h2 className="infoBox_cases">{cases}</h2>
+        <h2 className={`infoBox_cases ${!isRed && "infoBox_cases--green"}`}>
+          {cases}
+        </h2>
         <Typography className="infoBox_total">{total} Total</Typography>
       </CardContent>
     </Card>
