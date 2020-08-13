@@ -13,9 +13,9 @@ Built with:
 
 ## Setup
 
-* Clone the repository using the command `git clone https://github.com/athiratj/COVID-19-tracker`.
+* Clone the repository using the command `git clone https://github.com/athiratj/COVID-19-tracker.git`.
  
- Run the following commands:
+  Run the following commands:
 * `npm install`
 * `npm start`
 * Open http://localhost:3000 to view it in the browser.
