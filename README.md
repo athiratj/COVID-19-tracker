@@ -6,8 +6,8 @@ Built with:
 
 - [Create React App](https://github.com/facebook/create-react-app)
 - [disease.sh API](https://github.com/disease-sh/API)
-- [Chart.js](https://www.chartjs.org/), an open source HTML5 charts for websites
-- [Leaflet](https://leafletjs.com/), an open-source JavaScript library for mobile-friendly interactive maps
+- [Chart.js](https://www.chartjs.org/), open source HTML5 charts for websites.
+- [Leaflet](https://leafletjs.com/), an open-source JavaScript library for mobile-friendly interactive maps.
 - [Material UI](https://material-ui.com/)
 
 
